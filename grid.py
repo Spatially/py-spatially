@@ -13,9 +13,6 @@ def GetPopulation(token,wktPoint, radius):
 def GetTradeAreaPopulation(token,ata):
 	# POST /grid/pop
 	headers = {"Authorization": "Bearer {}".format(token)}
-	# print("ATA:", type(ata))
-	# for key, value in ata.iteritems():
-	# 	print(key)
 	data = {"featureCollection":ata["featureCollection"]}
 	resp = requests.post(SpatiallyAPI+"/grid/pop", json=data, headers=headers)
 	return ast.literal_eval(resp.text)
