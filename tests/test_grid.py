@@ -1,6 +1,7 @@
 import unittest
 import grid
 import api
+import ata
 
 class GridTest(unittest.TestCase):
 
@@ -16,10 +17,12 @@ class GridTest(unittest.TestCase):
 		self.assertIsNotNone(resp)
 		# print("Test grid response population:", resp)
 
-	# def test_get_area_population(self):
-	# 	locationWKT = "POINT(-71.064156780428 42.35862883483673)"
-	# 	resp = grid.GetTradeAreaPopulation(locationWKT, 100)
-	# 	print("Test grid response:", resp)
+	def test_get_area_population(self):
+		locationWKT = "POINT(-71.064156780428 42.35862883483673)"
+		testATA = ata.NewATA(self.token, locationWKT)
+		resp = grid.GetTradeAreaPopulation(self.token, testATA)
+		self.assertIsNotNone(resp)
+		# print("Test grid response:", resp)
 
 	def test_get_Activity(self):
 		locationWKT = "POINT(-71.064156780428 42.35862883483673)"

@@ -11,7 +11,8 @@ class ATATest(unittest.TestCase):
 		self.token = token
 
 	def test_new_ata(self):
-		print("Testing NewATA call")
+		# print("Testing NewATA call")
 		locationWKT = "POINT(-71.064156780428 42.35862883483673)"
 		resp = ata.NewATA(self.token,locationWKT)
-		print("Test ATA response:", resp)
+		self.assertIsNotNone(resp)
+		# print("Test ATA response:", resp)

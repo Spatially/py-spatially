@@ -24,8 +24,7 @@ def NewATA(token,locationWKT,timeOfDay="AllDay", locationType="Home", geoFence=F
 		data["locationType"] = ["Work"]
 	if locationType == "HomeAndWork":
 		data["locationType"] = ["Home", "Work"]
+	data["geoFence"] = geoFence
 	headers = {"Authorization": "Bearer {}".format(token)}
-	resp = requests.post(SpatiallyAPI+"/ads/science/ata", data=data, headers=headers)
-	print("response:",resp.text)
-	print("Request data:", data)
+	resp = requests.post(SpatiallyAPI+"/ads/science/ata", json=data, headers=headers)
 	return ast.literal_eval(resp.text)
