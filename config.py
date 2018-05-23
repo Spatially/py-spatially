@@ -1,0 +1,1 @@
+SpatiallyAPI = "https://api.spatially.com"
